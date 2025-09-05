@@ -39,3 +39,10 @@
 
 # debug information files
 *.dwo
+
+MLP/.cache/*
+MLP/build/*
+MLP/_deps/*
+MLP/CMakeFiles/*
+MLP/.idea/*
+MLP/.vscode/*
