@@ -1,3 +1,6 @@
 [submodule "LearnMatrix"]
 	path = LearnMatrix
 	url = https://github.com/heyunan111/LearnMatrix.git
+[submodule "MLP/cnpy"]
+	path = MLP/cnpy
+	url = https://github.com/rogersce/cnpy.git

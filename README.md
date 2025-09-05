@@ -18,12 +18,12 @@
 
 * [X]  学习矩阵运算（矩阵乘法、转置、点积）
 * [X]  用 Eigen 实现矩阵乘法
-* [ ]  写一个 **Softmax + ReLU** 函数
+* [X]  写一个 **Softmax + ReLU** 函数
 
 ✅ **第 4 周**
 
-* [ ]  用 C++ 写一个 **MLP 前向推理框架**（2层全连接 + ReLU + Softmax）
-* [ ]  输入 MNIST 图片（OpenCV 读入），输出分类结果
+* [X]  用 C++ 写一个 **MLP 前向推理框架**（2层全连接 + ReLU + Softmax）
+* [X]  输入 MNIST 图片（OpenCV 读入），输出分类结果
 
 ---
 
