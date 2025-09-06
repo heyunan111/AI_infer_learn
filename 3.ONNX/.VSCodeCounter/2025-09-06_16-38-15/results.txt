@@ -1,0 +1,63 @@
+Date : 2025-09-06 16:38:15
+Directory : c:\Users\27427\Desktop\code\AI_infer_learn\ONNX
+Total : 20 files,  4303 codes, 73 comments, 342 blanks, all 4718 lines
+
+Languages
++-------------+------------+------------+------------+------------+------------+
+| language    | files      | code       | comment    | blank      | total      |
++-------------+------------+------------+------------+------------+------------+
+| JSON        |         10 |      2,715 |          0 |          8 |      2,723 |
+| C++         |          2 |        700 |         71 |        157 |        928 |
+| CMake Cache |          1 |        398 |          0 |         95 |        493 |
+| YAML        |          1 |        262 |          2 |         15 |        279 |
+| CMake       |          5 |        158 |          0 |         45 |        203 |
+| Markdown    |          1 |         70 |          0 |         22 |         92 |
++-------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                           | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                              |         20 |      4,303 |         73 |        342 |      4,718 |
+| . (Files)                                                                                                                      |          4 |        284 |          8 |         46 |        338 |
+| build                                                                                                                          |         16 |      4,019 |         65 |        296 |      4,380 |
+| build (Files)                                                                                                                  |          3 |        448 |          0 |        103 |        551 |
+| build\.cmake                                                                                                                   |          8 |      2,578 |          0 |          7 |      2,585 |
+| build\.cmake\api                                                                                                               |          8 |      2,578 |          0 |          7 |      2,585 |
+| build\.cmake\api\v1                                                                                                            |          8 |      2,578 |          0 |          7 |      2,585 |
+| build\.cmake\api\v1\query                                                                                                      |          1 |          1 |          0 |          0 |          1 |
+| build\.cmake\api\v1\query\client-vscode                                                                                        |          1 |          1 |          0 |          0 |          1 |
+| build\.cmake\api\v1\reply                                                                                                      |          7 |      2,577 |          0 |          7 |      2,584 |
+| build\CMakeFiles                                                                                                               |          5 |        993 |         65 |        186 |      1,244 |
+| build\CMakeFiles (Files)                                                                                                       |          1 |        262 |          2 |         15 |        279 |
+| build\CMakeFiles\3.27.0-rc2                                                                                                    |          4 |        731 |         63 |        171 |        965 |
+| build\CMakeFiles\3.27.0-rc2 (Files)                                                                                            |          3 |         83 |          0 |         26 |        109 |
+| build\CMakeFiles\3.27.0-rc2\CompilerIdCXX                                                                                      |          1 |        648 |         63 |        145 |        856 |
++--------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------------------------------+-------------+------------+------------+------------+------------+
+| filename                                                                                                                       | language    | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------------+-------------+------------+------------+------------+------------+
+| c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\CMakeLists.txt                                                                 | CMake       |         33 |          0 |         11 |         44 |
+| c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\.cmake\api\v1\query\client-vscode\query.json                             | JSON        |          1 |          0 |          0 |          1 |
+| c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\.cmake\api\v1\reply\cache-v2-1c703a2da13010147778.json                   | JSON        |      1,659 |          0 |          1 |      1,660 |
+| c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\.cmake\api\v1\reply\cmakeFiles-v1-4baca0eb45d94fb2e40a.json              | JSON        |        377 |          0 |          1 |        378 |
+| c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\.cmake\api\v1\reply\codemodel-v2-b7ee1394555aac3d0464.json               | JSON        |         60 |          0 |          1 |         61 |
+| c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\.cmake\api\v1\reply\directory-.-Debug-d0094a50bb2071803777.json          | JSON        |         14 |          0 |          1 |         15 |
+| c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\.cmake\api\v1\reply\index-2025-09-06T08-37-23-0667.json                  | JSON        |        132 |          0 |          1 |        133 |
+| c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\.cmake\api\v1\reply\target-onnx_gpu_test-Debug-0037775ff708df2fdb25.json | JSON        |        245 |          0 |          1 |        246 |
+| c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\.cmake\api\v1\reply\toolchains-v1-2f132cdb1bb97d309bf6.json              | JSON        |         90 |          0 |          1 |         91 |
+| c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\CMakeCache.txt                                                           | CMake Cache |        398 |          0 |         95 |        493 |
+| c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\CMakeFiles\3.27.0-rc2\CMakeCXXCompiler.cmake                             | CMake       |         66 |          0 |         20 |         86 |
+| c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\CMakeFiles\3.27.0-rc2\CMakeRCCompiler.cmake                              | CMake       |          6 |          0 |          1 |          7 |
+| c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\CMakeFiles\3.27.0-rc2\CMakeSystem.cmake                                  | CMake       |         11 |          0 |          5 |         16 |
+| c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\CMakeFiles\3.27.0-rc2\CompilerIdCXX\CMakeCXXCompilerId.cpp               | C++         |        648 |         63 |        145 |        856 |
+| c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\CMakeFiles\CMakeConfigureLog.yaml                                        | YAML        |        262 |          2 |         15 |        279 |
+| c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\cmake_install.cmake                                                      | CMake       |         42 |          0 |          8 |         50 |
+| c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\compile_commands.json                                                    | JSON        |          8 |          0 |          0 |          8 |
+| c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\main.cpp                                                                       | C++         |         52 |          8 |         12 |         72 |
+| c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\onnx.ipynb                                                                     | JSON        |        129 |          0 |          1 |        130 |
+| c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\学习计划.md                                                                        | Markdown    |         70 |          0 |         22 |         92 |
+| Total                                                                                                                          |             |      4,303 |         73 |        342 |      4,718 |
++--------------------------------------------------------------------------------------------------------------------------------+-------------+------------+------------+------------+------------+

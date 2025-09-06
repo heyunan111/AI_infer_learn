@@ -69,18 +69,15 @@ MLPNetwork build_mnist_mlp(const std::string &weight_dir) {
 }
 
 int main() {
-  auto mlp =
-      build_mnist_mlp("D:/projects/AI_infer_learn/MLP/train/weights_yml");
-
-  Eigen::MatrixXd all_data = DataSet::load_dataset_from_folder(
-      "D:/MNIST数据集/mnist_dataset/mnist_dataset/test/test");
+  auto mlp = build_mnist_mlp(
+      "C:/Users/27427/Desktop/code/AI_infer_learn/MLP/train/weights_yml");
 
   int okNum = 0;
   int errNum = 0;
   DataSet dataset;
   dataset.load_data_set(
-      "D:/MNIST数据集/mnist_dataset/mnist_dataset/test/test/",
-      "D:/MNIST数据集/mnist_dataset/mnist_dataset/test_labs.txt");
+      "C:/Users/27427/Desktop/code/AI_infer_learn/MNISET/png/test/",
+      "C:/Users/27427/Desktop/code/AI_infer_learn/MNISET/png/test_labs.txt");
   auto data = dataset.getDataSet();
   for (const auto &imageData : data) {
     Eigen::VectorXd output = mlp.forward(imageData.data);

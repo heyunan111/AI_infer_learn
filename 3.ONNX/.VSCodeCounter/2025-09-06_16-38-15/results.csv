@@ -1,0 +1,22 @@
+"filename", "language", "Markdown", "C++", "JSON", "CMake", "CMake Cache", "YAML", "comment", "blank", "total"
+"c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\CMakeLists.txt", "CMake", 0, 0, 0, 33, 0, 0, 0, 11, 44
+"c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\.cmake\api\v1\query\client-vscode\query.json", "JSON", 0, 0, 1, 0, 0, 0, 0, 0, 1
+"c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\.cmake\api\v1\reply\cache-v2-1c703a2da13010147778.json", "JSON", 0, 0, 1659, 0, 0, 0, 0, 1, 1660
+"c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\.cmake\api\v1\reply\cmakeFiles-v1-4baca0eb45d94fb2e40a.json", "JSON", 0, 0, 377, 0, 0, 0, 0, 1, 378
+"c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\.cmake\api\v1\reply\codemodel-v2-b7ee1394555aac3d0464.json", "JSON", 0, 0, 60, 0, 0, 0, 0, 1, 61
+"c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\.cmake\api\v1\reply\directory-.-Debug-d0094a50bb2071803777.json", "JSON", 0, 0, 14, 0, 0, 0, 0, 1, 15
+"c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\.cmake\api\v1\reply\index-2025-09-06T08-37-23-0667.json", "JSON", 0, 0, 132, 0, 0, 0, 0, 1, 133
+"c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\.cmake\api\v1\reply\target-onnx_gpu_test-Debug-0037775ff708df2fdb25.json", "JSON", 0, 0, 245, 0, 0, 0, 0, 1, 246
+"c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\.cmake\api\v1\reply\toolchains-v1-2f132cdb1bb97d309bf6.json", "JSON", 0, 0, 90, 0, 0, 0, 0, 1, 91
+"c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\CMakeCache.txt", "CMake Cache", 0, 0, 0, 0, 398, 0, 0, 95, 493
+"c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\CMakeFiles\3.27.0-rc2\CMakeCXXCompiler.cmake", "CMake", 0, 0, 0, 66, 0, 0, 0, 20, 86
+"c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\CMakeFiles\3.27.0-rc2\CMakeRCCompiler.cmake", "CMake", 0, 0, 0, 6, 0, 0, 0, 1, 7
+"c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\CMakeFiles\3.27.0-rc2\CMakeSystem.cmake", "CMake", 0, 0, 0, 11, 0, 0, 0, 5, 16
+"c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\CMakeFiles\3.27.0-rc2\CompilerIdCXX\CMakeCXXCompilerId.cpp", "C++", 0, 648, 0, 0, 0, 0, 63, 145, 856
+"c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\CMakeFiles\CMakeConfigureLog.yaml", "YAML", 0, 0, 0, 0, 0, 262, 2, 15, 279
+"c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\cmake_install.cmake", "CMake", 0, 0, 0, 42, 0, 0, 0, 8, 50
+"c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\build\compile_commands.json", "JSON", 0, 0, 8, 0, 0, 0, 0, 0, 8
+"c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\main.cpp", "C++", 0, 52, 0, 0, 0, 0, 8, 12, 72
+"c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\onnx.ipynb", "JSON", 0, 0, 129, 0, 0, 0, 0, 1, 130
+"c:\Users\27427\Desktop\code\AI_infer_learn\ONNX\学习计划.md", "Markdown", 70, 0, 0, 0, 0, 0, 0, 22, 92
+"Total", "-", 70, 700, 2715, 158, 398, 262, 73, 342, 4718
