@@ -1,0 +1,79 @@
+graph TD
+    subgraph "输入"
+        input(224x224x3)
+    end
+
+    subgraph "Stage 1"
+        conv1[7x7, 64, stride 2] --> bn1[BatchNorm] --> relu1[ReLU] --> maxpool[3x3 MaxPool, stride 2]
+    end
+
+    subgraph "Stage 2"
+        conv2_x_block1_start[64] --> conv2_x_block1_conv1[3x3, 64] --> conv2_x_block1_bn1[BatchNorm] --> conv2_x_block1_relu1[ReLU]
+        conv2_x_block1_conv1 --> conv2_x_block1_conv2[3x3, 64] --> conv2_x_block1_bn2[BatchNorm]
+        conv2_x_block1_start --> conv2_x_block1_residual_add
+        conv2_x_block1_bn2 --> conv2_x_block1_residual_add
+        conv2_x_block1_residual_add --> conv2_x_block1_relu2[ReLU]
+
+        conv2_x_block2_start[64] --> conv2_x_block2_conv1[3x3, 64] --> conv2_x_block2_bn1[BatchNorm] --> conv2_x_block2_relu1[ReLU]
+        conv2_x_block2_conv1 --> conv2_x_block2_conv2[3x3, 64] --> conv2_x_block2_bn2[BatchNorm]
+        conv2_x_block2_start --> conv2_x_block2_residual_add
+        conv2_x_block2_bn2 --> conv2_x_block2_residual_add
+        conv2_x_block2_residual_add --> conv2_x_block2_relu2[ReLU]
+    end
+
+    subgraph "Stage 3"
+        conv3_x_block1_start[64] --> conv3_x_block1_downsample[1x1, 128, stride 2]
+        conv3_x_block1_start --> conv3_x_block1_conv1[3x3, 128, stride 2] --> conv3_x_block1_bn1[BatchNorm] --> conv3_x_block1_relu1[ReLU]
+        conv3_x_block1_conv1 --> conv3_x_block1_conv2[3x3, 128] --> conv3_x_block1_bn2[BatchNorm]
+        conv3_x_block1_downsample --> conv3_x_block1_residual_add
+        conv3_x_block1_bn2 --> conv3_x_block1_residual_add
+        conv3_x_block1_residual_add --> conv3_x_block1_relu2[ReLU]
+
+        conv3_x_block2_start[128] --> conv3_x_block2_conv1[3x3, 128] --> conv3_x_block2_bn1[BatchNorm] --> conv3_x_block2_relu1[ReLU]
+        conv3_x_block2_conv1 --> conv3_x_block2_conv2[3x3, 128] --> conv3_x_block2_bn2[BatchNorm]
+        conv3_x_block2_start --> conv3_x_block2_residual_add
+        conv3_x_block2_bn2 --> conv3_x_block2_residual_add
+        conv3_x_block2_residual_add --> conv3_x_block2_relu2[ReLU]
+    end
+
+    subgraph "Stage 4"
+        conv4_x_block1_start[128] --> conv4_x_block1_downsample[1x1, 256, stride 2]
+        conv4_x_block1_start --> conv4_x_block1_conv1[3x3, 256, stride 2] --> conv4_x_block1_bn1[BatchNorm] --> conv4_x_block1_relu1[ReLU]
+        conv4_x_block1_conv1 --> conv4_x_block1_conv2[3x3, 256] --> conv4_x_block1_bn2[BatchNorm]
+        conv4_x_block1_downsample --> conv4_x_block1_residual_add
+        conv4_x_block1_bn2 --> conv4_x_block1_residual_add
+        conv4_x_block1_residual_add --> conv4_x_block1_relu2[ReLU]
+
+        conv4_x_block2_start[256] --> conv4_x_block2_conv1[3x3, 256] --> conv4_x_block2_bn1[BatchNorm] --> conv4_x_block2_relu1[ReLU]
+        conv4_x_block2_conv1 --> conv4_x_block2_conv2[3x3, 256] --> conv4_x_block2_bn2[BatchNorm]
+        conv4_x_block2_start --> conv4_x_block2_residual_add
+        conv4_x_block2_bn2 --> conv4_x_block2_residual_add
+        conv4_x_block2_residual_add --> conv4_x_block2_relu2[ReLU]
+    end
+
+    subgraph "Stage 5"
+        conv5_x_block1_start[256] --> conv5_x_block1_downsample[1x1, 512, stride 2]
+        conv5_x_block1_start --> conv5_x_block1_conv1[3x3, 512, stride 2] --> conv5_x_block1_bn1[BatchNorm] --> conv5_x_block1_relu1[ReLU]
+        conv5_x_block1_conv1 --> conv5_x_block1_conv2[3x3, 512] --> conv5_x_block1_bn2[BatchNorm]
+        conv5_x_block1_downsample --> conv5_x_block1_residual_add
+        conv5_x_block1_bn2 --> conv5_x_block1_residual_add
+        conv5_x_block1_residual_add --> conv5_x_block1_relu2[ReLU]
+
+        conv5_x_block2_start[512] --> conv5_x_block2_conv1[3x3, 512] --> conv5_x_block2_bn1[BatchNorm] --> conv5_x_block2_relu1[ReLU]
+        conv5_x_block2_conv1 --> conv5_x_block2_conv2[3x3, 512] --> conv5_x_block2_bn2[BatchNorm]
+        conv5_x_block2_start --> conv5_x_block2_residual_add
+        conv5_x_block2_bn2 --> conv5_x_block2_residual_add
+        conv5_x_block2_residual_add --> conv5_x_block2_relu2[ReLU]
+    end
+
+    subgraph "输出"
+        avgpool[AveragePool, 7x7] --> fc[Fully Connected, 1000] --> softmax[Softmax]
+    end
+
+    input --> Stage_1_start
+    Stage_1_start(conv1) --> Stage_2_start(conv2_x_block1_start)
+    Stage_2_start --> Stage_3_start(conv3_x_block1_start)
+    Stage_3_start --> Stage_4_start(conv4_x_block1_start)
+    Stage_4_start --> Stage_5_start(conv5_x_block1_start)
+    Stage_5_start --> avgpool
+    avgpool --> fc --> softmax
