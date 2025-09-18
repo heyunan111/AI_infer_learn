@@ -1,0 +1,44 @@
+@startuml ResNet
+skinparam rectangle {
+  BackgroundColor White
+  BorderColor Black
+  RoundCorner 10
+}
+
+title ResNet-18 Forward Pass (All Blocks)
+
+' === Stem ===
+rectangle "Input\n[3x224x224]" as input
+rectangle "Conv7x7,s2\nBN+ReLU\n[64x112x112]" as conv1
+rectangle "MaxPool3x3,s2\n[64x56x56]" as pool
+
+
+' === Layer1 ===
+rectangle "Layer1 Block1\nBasicBlock\nin: [64x56x56]\nout: [64x56x56]" as l1b1
+rectangle "Layer1 Block2\nBasicBlock\nin: [64x56x56]\nout: [64x56x56]" as l1b2
+
+
+
+' === Layer2 ===
+rectangle "Layer2 Block1\nBasicBlock (s2)\nshortcut 1x1\nin: [64x56x56]\nout: [128x28x28]" as l2b1
+rectangle "Layer2 Block2\nBasicBlock\nin: [128x28x28]\nout: [128x28x28]" as l2b2
+
+
+
+' === Layer3 ===
+rectangle "Layer3 Block1\nBasicBlock (s2)\nshortcut 1x1\nin: [128x28x28]\nout: [256x14x14]" as l3b1
+rectangle "Layer3 Block2\nBasicBlock\nin: [256x14x14]\nout: [256x14x14]" as l3b2
+
+
+
+' === Layer4 ===
+rectangle "Layer4 Block1\nBasicBlock (s2)\nshortcut 1x1\nin: [256x14x14]\nout: [512x7x7]" as l4b1
+rectangle "Layer4 Block2\nBasicBlock\nin: [512x7x7]\nout: [512x7x7]" as l4b2
+
+
+
+' === Head ===
+rectangle "Global AvgPool\n[512x1x1]" as gap
+rectangle "FC + Softmax\n[#classes]" as fc
+
+@enduml
