@@ -48,3 +48,16 @@ MLP/CMakeFiles/*
 MNIST/*
 .vscode/*
 */data/*
+
+# Large model files and datasets
+*.pth
+*.onnx
+*.tar.gz
+*.json
+*.yml
+*.ipynb
+**/train-images-idx3-ubyte*
+**/t10k-images-idx3-ubyte*
+**/cifar-*
+**/FashionMNIST/**
+**/MNIST/**
