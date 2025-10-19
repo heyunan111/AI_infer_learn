@@ -1,0 +1,1 @@
+# Test package for ResNet-50 image classification system
