@@ -31,13 +31,13 @@
 
 ✅ **第 5 周**
 
-* [ ]  学习 PyTorch → 导出 ONNX 模型（ResNet18）
-* [ ]  学 ONNX 格式结构（Graph、Node、Tensor）
+* [X]  学习 PyTorch → 导出 ONNX 模型（ResNet18）
+* [X]  学 ONNX 格式结构（Graph、Node、Tensor）
 
 ✅ **第 6 周**
 
-* [ ]  学 ONNX Runtime C++ API（加载模型、推理）
-* [ ]  在 C++ 里运行 ResNet18 推理一张图片
+* [X]  学 ONNX Runtime C++ API（加载模型、推理）
+* [X]  在 C++ 里运行 ResNet18 推理一张图片
 
 ✅ **第 7 周**
 
