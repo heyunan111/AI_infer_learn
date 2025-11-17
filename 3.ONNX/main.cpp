@@ -1,7 +1,5 @@
 #include "onnxruntime_c_api.h"
 #include <algorithm>
-#include <cmath>
-#include <cstddef>
 #include <cstring>
 #include <iostream>
 #include <onnxruntime_cxx_api.h>

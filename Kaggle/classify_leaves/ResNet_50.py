@@ -408,12 +408,16 @@ def two_stage_training_with_best_model(model, train_loader, test_loader, criteri
     
     freeze_model_layers(model, freeze_backbone=False)
     
-    optimizer_stage2 = optim.Adam(
-        model.parameters(), lr=0.0001, betas=(0.9, 0.999)
-    )
-    scheduler_stage2 = optim.lr_scheduler.CosineAnnealingWarmRestarts(
-        optimizer_stage2, T_0=10, T_mult=2
-    )
+    # 为阶段2构建带分组学习率的优化器：
+    # - backbone（除fc外的参数）使用较低学习率
+    # - 分类头（model.fc）使用较高学习率
+    optimizer_stage2 = optim.AdamW([
+        {'params': [p for n, p in model.named_parameters() if 'fc' not in n], 'lr': 1e-5},
+        {'params': model.fc.parameters(), 'lr': 1e-4}
+    ], weight_decay=0.01, betas=(0.9, 0.999))
+
+    # 学习率调度器（与阶段1保持一致的策略）
+    scheduler_stage2 = optim.lr_scheduler.StepLR(optimizer_stage2, step_size=5, gamma=0.5)
     
     # 阶段2：使用带早停的训练
     stage2_history = train_with_early_stopping(
@@ -481,15 +485,37 @@ if __name__ == "__main__":
     print(f"类别数量: {len(full_dataset.label_to_id)}")
     print(f"类别列表: {list(full_dataset.label_to_id.keys())[:10]}...")  # 显示前10个类别
     
-    # model = models.resnet50(pretrained = True)
-    # num_classes = 176
-    # num_features   = model.fc.in_features
-    # model.fc = nn.Linear(num_features,num_classes)
+    model = models.resnet50(pretrained = True)
+    num_classes = 176
+    num_features   = model.fc.in_features
+    model.fc = nn.Linear(num_features,num_classes)
 
-    # device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    # model.to(device=device)
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    model.to(device=device)
 
 
-    # criterion = nn.CrossEntropyLoss()
+    criterion = nn.CrossEntropyLoss()
 
     # two_stage_training_with_best_model(model, train_loader, test_loader, criterion, device)
+    model.load_state_dict(torch.load('final_best_model.pth'))
+    model.eval()  # 设置为评估模式
+
+# 创建示例输入
+    # 确保示例输入与模型在同一设备，避免 CPU/GPU 类型不匹配
+    dummy_input = torch.randn(1, 3, 224, 224).to(device)  # 根据你的输入尺寸调整
+
+# 导出ONNX模型
+    torch.onnx.export(
+        model,                  # 要导出的模型
+        dummy_input,            # 模型输入（示例）
+        "model.onnx",           # 输出文件名
+        export_params=True,     # 是否导出模型参数
+        opset_version=11,       # ONNX算子集版本
+        do_constant_folding=True,  # 是否进行常量折叠优化
+        input_names=['input'],   # 输入节点名称
+        output_names=['output'], # 输出节点名称
+        dynamic_axes={          # 动态维度配置
+        'input': {0: 'batch_size'},
+        'output': {0: 'batch_size'}
+    }
+)

@@ -1,0 +1,7 @@
+test/
+train/
+test.7z
+train.7z
+*.csv
+*__pycache__*
+.vscode
