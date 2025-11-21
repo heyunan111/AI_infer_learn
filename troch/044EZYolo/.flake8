@@ -1,0 +1,17 @@
+[flake8]
+max-line-length = 120
+exclude = 
+    .git,
+    __pycache__,
+    data,
+    coco128,
+    runs,
+    .venv,
+    venv
+ignore = 
+    E501,  # line too long
+    W503,  # line break before binary operator
+    E203,  # whitespace before ':'
+    E402,  # module level import not at top of file
+per-file-ignores =
+    __init__.py:F401
