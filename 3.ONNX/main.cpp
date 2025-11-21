@@ -12,23 +12,22 @@
 
 int main() {
   // 1️⃣ 创建 ONNX Runtime 环境
-  Ort::Env env(ORT_LOGGING_LEVEL_ERROR, "onnx test");
+  Ort::Env env(ORT_LOGGING_LEVEL_WARNING, "onnx test");
   Ort::SessionOptions sessop;
-  // 2️⃣ 配置 GPU
-  Ort::ThrowOnError(OrtSessionOptionsAppendExecutionProvider_CUDA(sessop, 0));
+  // 2️⃣ 配置执行提供者（使用 CPU，如需 GPU 请取消注释下一行）
+  // Ort::ThrowOnError(OrtSessionOptionsAppendExecutionProvider_CUDA(sessop,
+  // 0));
   sessop.SetGraphOptimizationLevel(GraphOptimizationLevel::ORT_ENABLE_ALL);
 
   // 3️⃣ 加载模型
-  Ort::Session session(
-      env,
-      L"C:/Users/27427/Desktop/code/AI_infer_learn/3.ONNX/cnn_onnx_module.onnx",
-      sessop);
+  Ort::Session session(env, L"cnn_onnx_module.onnx", sessop);
 
   // 4️⃣ 读取图像
-  std::string imgPath =
-      "C:/Users/27427/Desktop/code/AI_infer_learn/MNIST/png/test/0.png";
+  std::string imgPath = "test_image.png"; // 需要提供测试图像
   cv::Mat img = cv::imread(imgPath, cv::IMREAD_GRAYSCALE);
   if (img.empty()) {
+    std::cerr << "错误: 无法读取图像文件 " << imgPath << std::endl;
+    std::cerr << "请提供一个 28x28 的灰度图像用于测试" << std::endl;
     return -1;
   }
   cv::resize(img, img, cv::Size(28, 28));

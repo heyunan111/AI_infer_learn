@@ -1,19 +1,20 @@
 cmake_minimum_required(VERSION 3.18)
+
+# 必须在 project() 之前设置 vcpkg
+if(NOT DEFINED CMAKE_TOOLCHAIN_FILE)
+    set(CMAKE_TOOLCHAIN_FILE "D:/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
+endif()
+
+if(NOT DEFINED VCPKG_TARGET_TRIPLET)
+    set(VCPKG_TARGET_TRIPLET "x64-mingw-dynamic" CACHE STRING "")
+endif()
+
 project(onnx_gpu_test LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)  # 生成 compile_commands.json 供 clangd 使用
 
-# 指定 triplet
-if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-    set(VCPKG_TARGET_TRIPLET "x64-mingw-dynamic" CACHE STRING "")
-else()
-    set(VCPKG_TARGET_TRIPLET "x64-windows" CACHE STRING "")
-endif()
-
-# 指定 vcpkg 工具链
-set(CMAKE_TOOLCHAIN_FILE "C:/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
-
-# 查找 OpenCV
+# 查找 OpenCV (vcpkg 安装的是 opencv4)
 find_package(OpenCV REQUIRED)
 
 # ONNX Runtime
