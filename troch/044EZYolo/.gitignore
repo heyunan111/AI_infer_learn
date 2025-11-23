@@ -39,6 +39,7 @@ wheels/
 *.swp
 *.swo
 *~
+.kiro
 
 # 日志和缓存
 *.log
