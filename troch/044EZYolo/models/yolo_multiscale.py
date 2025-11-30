@@ -1,6 +1,8 @@
 import torch
 import torch.nn as nn
 from models.backbone import MiniCSPDarknet, conv
+from models.neck import neck
+from models.head import head
 
 
 class MultiScaleYOLO(nn.Module):
@@ -13,40 +15,19 @@ class MultiScaleYOLO(nn.Module):
 
         # Backbone - 输出多尺度特征
         self.backbone = MiniCSPDarknet()
-
-        # Detection heads for different scales
-        # P3: 80x80, 128 channels
-        self.head_P3 = nn.Sequential(
-            conv(128, 256, k=3, s=1),
-            nn.Conv2d(256, anchors_per_scale * (5 + num_classes), 1)
-        )
-
-        # P4: 40x40, 256 channels
-        self.head_P4 = nn.Sequential(
-            conv(256, 512, k=3, s=1),
-            nn.Conv2d(512, anchors_per_scale * (5 + num_classes), 1)
-        )
-
-        # P6: 10x10, 1024 channels
-        self.head_P6 = nn.Sequential(
-            conv(1024, 512, k=3, s=1),
-            nn.Conv2d(512, anchors_per_scale * (5 + num_classes), 1)
-        )
+        self.head = head()
+        self.neck = neck()
 
     def forward(self, x):
-        # 获取多尺度特征
-        P3, P4, P6 = self.backbone(x)
-
-        # 在每个尺度上进行检测
-        out_P3 = self.head_P3(P3)  # 大目标检测 (80x80)
-        out_P4 = self.head_P4(P4)  # 中目标检测 (40x40)
-        out_P6 = self.head_P6(P6)  # 小目标检测 (10x10)
-
-        return out_P3, out_P4, out_P6
+        p3, p4, p5 = self.backbone(x)
+        p3, p4, p5 = self.neck(p3, p4, p5)
+        p3, p4, p5 = self.head((p3,p4,p5))
+        return p3,p4,p5
 
 
 if __name__ == '__main__':
     import sys
+
     sys.path.append('.')
 
     print("=" * 60)
@@ -67,8 +48,8 @@ if __name__ == '__main__':
 
     # 计算总检测框数量
     total_predictions = (
-        out_P3.shape[2] * out_P3.shape[3] * 3
-        + out_P4.shape[2] * out_P4.shape[3] * 3
-        + out_P6.shape[2] * out_P6.shape[3] * 3
+            out_P3.shape[2] * out_P3.shape[3] * 3
+            + out_P4.shape[2] * out_P4.shape[3] * 3
+            + out_P6.shape[2] * out_P6.shape[3] * 3
     )
     print(f'总预测框数量: {total_predictions}')
